@@ -4,14 +4,16 @@ import Message from './Messsage';
 
 function App() {
   let [count, setCount] = useState(0)
+  let [checkTime, setCheckTime]= useState(true)
     return (
-    <div className="App">
+      <div className={`App box ${ checkTime ? 'dayTime' : 'nighTime' }`}>
       <Message  counter={count} />
-    <button onClick={
+      <button onClick={
       ()=> setCount(++count)}>
       Increment
-    </button>
-
+      </button>
+      <h3 style={{color:'gray'}}>Time is : {checkTime ? ' Day' : ' Night' }</h3>
+        <button onClick={()=> setCheckTime (!checkTime)}> Check Time </button>
     </div>
   );
 }
